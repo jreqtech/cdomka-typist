@@ -16,6 +16,8 @@ const resultWpmEl = document.getElementById("resultWpm");
 const resultAccuracyEl = document.getElementById("resultAccuracy");
 const resultScoreEl = document.getElementById("resultScore");
 const resultRankEl = document.getElementById("resultRank");
+const resultRankTitleEl = document.getElementById("resultRankTitle");
+const resultRankCardEl = resultRankEl.closest(".rank-display");
 const quoteSourceEl = document.getElementById("quoteSource");
 const focusButton = document.getElementById("focusButton");
 const caretEl = document.getElementById("caret");
@@ -65,6 +67,65 @@ const quoteGroups = {
   medium: [101, 300],
   long: [301, 600],
   thicc: [601, 9999]
+};
+
+const rankTitles = {
+  "S+": [
+    "TYPING FINAL BOSS",
+    "HUMAN AUTOCOMPLETE",
+    "KEYBOARD DEITY",
+    "UNLIMITED WPM",
+    "MAIN CHARACTER FINGERS",
+    "BUILT DIFFERENT"
+  ],
+  S: [
+    "SPEED DEMON",
+    "KEYBOARD BERSERKER",
+    "TURBO TYPIST",
+    "FINGERS OF FURY",
+    "MECHANICAL MENACE",
+    "CLACK AND ATTACK"
+  ],
+  A: [
+    "KEYBOARD WARRIOR",
+    "CONTROVERSIAL TAKE SURVIVOR",
+    "ANIME OPINION DEFENDER",
+    "POWERSCALING DEBATER",
+    "PLOT ARMOR ACTIVATED",
+    "CERTIFIED TYPIST"
+  ],
+  B: [
+    "FAST FINGERS",
+    "FILLER ARC SURVIVOR",
+    "SWITCH HITTER",
+    "TYPING TOURNAMENT ARC",
+    "RESPECTABLE BUTTON PRESSER",
+    "ABOVE-AVERAGE PROTAGONIST"
+  ],
+  C: [
+    "WARMING UP",
+    "TUTORIAL ARC COMPLETE",
+    "GETTING THE HANG OF IT",
+    "CAREFUL CLICKER",
+    "ONE KEY AT A TIME",
+    "TRAINING MONTAGE ACTIVE"
+  ],
+  D: [
+    "BACKSPACE ENJOYER",
+    "TWO-FINGER TECHNIQUE",
+    "TYPING LICENSE PENDING",
+    "CAPS LOCK MAIN",
+    "STILL BUFFERING",
+    "KEYBOARD CASUALTY"
+  ],
+  F: [
+    "DEFEATED BY THE PARAGRAPH",
+    "HUNT AND PECK HERO",
+    "SPACEBAR SPECIALIST",
+    "KEYBOARD DISCONNECTED",
+    "RAGE QUIT CANDIDATE",
+    "TUTORIAL BOSS VICTIM"
+  ]
 };
 
 const state = {
@@ -514,7 +575,10 @@ function renderResult(stats) {
   resultWpmEl.textContent = stats.wpm;
   resultAccuracyEl.textContent = `${stats.accuracy}%`;
   resultScoreEl.textContent = stats.score;
-  resultRankEl.textContent = getRank(stats.score);
+  resultRankEl.textContent = stats.rank;
+  resultRankEl.dataset.rank = stats.rank;
+  resultRankTitleEl.textContent = stats.rankTitle;
+  resultRankCardEl.className = `rank-card rank-display ${getRankClass(stats.rank)}`;
   const shouldShowSource = state.mode !== "competition" && state.currentQuoteSource;
   quoteSourceEl.textContent = shouldShowSource ? state.currentQuoteSource : "";
   quoteSourceEl.classList.toggle("hidden", !shouldShowSource);
@@ -529,6 +593,27 @@ function getRank(score) {
   if (score >= 40) return "C";
   if (score >= 20) return "D";
   return "F";
+}
+
+function getRankClass(rank) {
+  const normalized = rank.toLowerCase().replace("+", "-plus");
+  return `rank--${normalized}`;
+}
+
+function getRankTitle(rank, stats) {
+  const titles = rankTitles[rank] || [];
+  if (!titles.length) return "";
+  const seed = `${rank}|${stats.score}|${stats.wpm}|${stats.accuracy}|${stats.totalTypedChars}|${stats.keyPresses}|${state.targetText.length}`;
+  return titles[Math.abs(hashString(seed)) % titles.length];
+}
+
+function hashString(value) {
+  let hash = 0;
+  for (let i = 0; i < value.length; i += 1) {
+    hash = ((hash << 5) - hash) + value.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash;
 }
 
 function modeLabel() {
@@ -574,12 +659,16 @@ function finishTest() {
   caretEl.classList.add("hidden");
 
   const stats = calculateStats();
+  stats.rank = getRank(stats.score);
+  stats.rankTitle = getRankTitle(stats.rank, stats);
   state.lastStats = stats;
   state.pendingScore = {
     mode: modeLabel(),
     score: stats.score,
     wpm: stats.wpm,
     accuracy: stats.accuracy,
+    rank: stats.rank,
+    rankTitle: stats.rankTitle,
     source: state.currentQuoteSource,
     date: new Date().toISOString()
   };

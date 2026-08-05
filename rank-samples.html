@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CDOMKA Rank Samples</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      min-height: 100vh;
+      overflow: auto;
+    }
+
+    .sample-page {
+      width: min(100% - 48px, 1100px);
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .sample-header {
+      margin-bottom: 32px;
+    }
+
+    .sample-header h1 {
+      margin: 0;
+      color: var(--main-color);
+      font-size: 1.8rem;
+    }
+
+    .sample-header p {
+      max-width: 640px;
+      color: var(--sub-color);
+      line-height: 1.5;
+    }
+
+    .sample-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 32px;
+      align-items: end;
+    }
+
+    .sample-rank {
+      display: grid;
+      justify-items: center;
+      min-height: 260px;
+    }
+
+    .sample-rank .rank-card {
+      min-width: 190px;
+    }
+  </style>
+</head>
+<body class="showing-result">
+  <main class="sample-page">
+    <section class="sample-header" aria-label="Rank sample notes">
+      <h1>Rank Samples</h1>
+      <p>Temporary local preview for the result rank letter and title styling. This page uses the same local CSS and bundled Russo One font as the typing test.</p>
+    </section>
+
+    <section class="sample-grid" aria-label="Rank samples">
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--s-plus">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="S+">S+</span>
+          <small class="rank-title">TYPING FINAL BOSS</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--s">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="S">S</span>
+          <small class="rank-title">SPEED DEMON</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--a">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="A">A</span>
+          <small class="rank-title">KEYBOARD WARRIOR</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--b">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="B">B</span>
+          <small class="rank-title">FAST FINGERS</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--c">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="C">C</span>
+          <small class="rank-title">WARMING UP</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--d">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="D">D</span>
+          <small class="rank-title">BACKSPACE ENJOYER</small>
+        </div>
+      </div>
+      <div class="sample-rank">
+        <div class="rank-card rank-display rank--f">
+          <small class="rank-label">GRADE</small>
+          <span class="rank-letter" data-rank="F">F</span>
+          <small class="rank-title">DEFEATED BY THE PARAGRAPH</small>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -14,6 +14,14 @@
   --font: ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
+@font-face {
+  font-family: "Russo One";
+  src: url("public/fonts/russo-one.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -402,15 +410,160 @@ body[data-mode="competition"].showing-result .page {
 .rank-card {
   display: grid;
   justify-items: center;
+  align-content: center;
   min-width: 190px;
+  isolation: isolate;
 }
 
-.result .rank-card span {
-  min-width: 0;
-  font-size: 11rem;
+.rank-label {
+  color: var(--sub-color);
+  font-size: 0.9rem;
   font-weight: 900;
-  line-height: 0.9;
-  text-shadow: 0 0 18px rgba(255, 222, 89, 0.28), 0 2px 14px rgba(0, 0, 0, 0.45);
+  letter-spacing: 0.08em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.rank-title.rank-title {
+  display: -webkit-box;
+  max-width: 12rem;
+  margin-top: 0.6rem;
+  color: rgba(255, 244, 176, 0.82);
+  font-size: clamp(0.74rem, 1.1vw, 0.9rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.rank-letter.rank-letter {
+  position: relative;
+  display: inline-block;
+  min-width: 0;
+  padding: 0 0.08em 0.06em;
+  margin: 0 -0.08em -0.06em;
+  color: var(--main-color);
+  font-family: "Russo One", Impact, sans-serif;
+  font-size: 11rem;
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  transform-origin: center;
+  isolation: isolate;
+  overflow: visible;
+  text-shadow:
+    3px 3px 0 #164747,
+    0 0 14px rgba(255, 223, 87, 0.45);
+}
+
+.rank--s-plus .rank-letter {
+  color: #fff8c7;
+  font-size: 9.8rem;
+  letter-spacing: -0.1em;
+  text-shadow:
+    3px 3px 0 #654d00,
+    0 0 14px rgba(255, 232, 112, 0.95),
+    0 0 34px rgba(101, 208, 237, 0.62),
+    0 0 52px rgba(255, 255, 255, 0.38);
+}
+
+.rank--s .rank-letter {
+  color: #c7a6ff;
+  text-shadow:
+    3px 3px 0 #3a275c,
+    0 0 12px rgba(199, 166, 255, 0.76),
+    0 0 26px rgba(101, 208, 237, 0.42);
+}
+
+.rank--a .rank-letter {
+  color: #8cecff;
+  text-shadow:
+    3px 3px 0 #125062,
+    0 0 14px rgba(140, 236, 255, 0.62),
+    0 0 28px rgba(93, 224, 230, 0.32);
+}
+
+.rank--b .rank-letter {
+  color: #8ef2de;
+  text-shadow:
+    3px 3px 0 #1c5151,
+    0 0 10px rgba(142, 242, 222, 0.42);
+}
+
+.rank--c .rank-letter {
+  color: #ffde59;
+  text-shadow:
+    3px 3px 0 #6a4b00,
+    0 0 10px rgba(255, 222, 89, 0.42);
+}
+
+.rank--d .rank-letter {
+  color: #d9e2e4;
+  text-shadow:
+    3px 3px 0 #4a5a5e,
+    0 0 8px rgba(217, 226, 228, 0.28);
+}
+
+.rank--f .rank-letter {
+  color: #b8753f;
+  text-shadow:
+    3px 3px 0 #4f2f1c,
+    0 0 8px rgba(184, 117, 63, 0.26);
+}
+
+.rank--s-plus .rank-title {
+  color: rgba(255, 248, 199, 0.9);
+}
+
+.rank--s .rank-title {
+  color: rgba(199, 166, 255, 0.84);
+}
+
+.rank--a .rank-title {
+  color: rgba(140, 236, 255, 0.86);
+}
+
+.rank--b .rank-title {
+  color: rgba(142, 242, 222, 0.8);
+}
+
+.rank--c .rank-title {
+  color: rgba(255, 222, 89, 0.82);
+}
+
+.rank--d .rank-title {
+  color: rgba(217, 226, 228, 0.8);
+}
+
+.rank--f .rank-title {
+  color: rgba(184, 117, 63, 0.82);
+}
+
+.showing-result .rank-display {
+  animation:
+    rankImpact 520ms cubic-bezier(0.2, 0.9, 0.25, 1.2) both,
+    rankHover 2600ms ease-in-out 620ms infinite;
+}
+
+.showing-result .rank--s-plus .rank-letter {
+  animation: rankTopGlowPulse 720ms ease-out 220ms both;
+}
+
+.showing-result .rank--s .rank-letter {
+  animation: rankGlowPulse 620ms ease-out 220ms both;
+}
+
+.showing-result .rank--f .rank-letter {
+  animation: rankFShake 320ms ease-out 520ms both;
+}
+
+.showing-result .rank-title {
+  animation: rankTitleIn 260ms ease-out 260ms both;
 }
 
 .result span {
@@ -662,6 +815,104 @@ tbody tr:first-child td {
 @keyframes blink {
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes rankImpact {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) translateY(8px);
+  }
+
+  65% {
+    opacity: 1;
+    transform: scale(1.08) translateY(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rankHover {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.015);
+  }
+}
+
+@keyframes rankGlowPulse {
+  0%,
+  100% {
+    filter: none;
+  }
+
+  50% {
+    filter: drop-shadow(0 0 10px rgba(255, 216, 77, 0.65));
+  }
+}
+
+@keyframes rankTopGlowPulse {
+  0%,
+  100% {
+    filter: none;
+  }
+
+  45% {
+    filter:
+      drop-shadow(0 0 12px rgba(255, 232, 112, 0.85))
+      drop-shadow(0 0 18px rgba(101, 208, 237, 0.46));
+  }
+}
+
+@keyframes rankFShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-3px);
+  }
+
+  50% {
+    transform: translateX(3px);
+  }
+
+  75% {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes rankTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rank-letter,
+  .rank-letter::before,
+  .rank-letter::after,
+  .rank-title,
+  .showing-result .rank-display,
+  .showing-result .rank-letter,
+  .showing-result .rank-letter::before,
+  .showing-result .rank-letter::after,
+  .showing-result .rank-title {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
