@@ -669,7 +669,7 @@ document.addEventListener("keydown", (event) => {
 
   if (leaderboardDialog.open || isCommand) return;
 
-  if (!isTypingName && event.key === "Escape") {
+  if (event.key === "Escape" || event.code === "Escape") {
     event.preventDefault();
     startTest();
     return;
@@ -717,7 +717,7 @@ document.addEventListener("keydown", (event) => {
     inputEl.value += event.key;
     inputEl.dispatchEvent(new Event("input", { bubbles: true }));
   }
-});
+}, true);
 
 clearScoresButton.addEventListener("click", () => {
   if (confirm("Clear all local leaderboard scores on this browser?")) {
