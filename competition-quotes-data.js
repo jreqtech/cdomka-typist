@@ -396,4 +396,74 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "anime",
     size: "thicc"
   },
+  {
+    title: "Tokyo Ghoul's Anime Adaptation Is an Absolute Trainwreck That Ruined a Manga Masterpiece",
+    text: "Tokyo Ghoul's anime adaptation is a trainwreck that turned a psychological horror manga into a confusing action shortcut. Studio Pierrot skipped vital character arcs, rewrote major plot lines, and rushed through material that needed room to breathe. Kaneki's tragic transformation deserved a slow collapse, not a hollow highlight reel for anime-only viewers.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Sword Art Online Is Responsible for the Ruin of Modern Isekai and Fantasy Anime",
+    text: "Sword Art Online helped ruin modern isekai by proving bland power fantasies could print money. Its success popularized invincible protagonists, rushed progression, mindless harems, and worlds built more like wish-fulfillment menus than actual settings. Studios learned the wrong lesson and spent a decade copying the easiest parts.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Spy x Family Falls Apart the Second You Look at Its Absurd Premise Realistically",
+    text: "Spy x Family falls apart if you look at the premise realistically for more than five seconds. An elite spy and a world-class assassin somehow fail to notice each other's obvious double lives because the comedy needs them clueless. The political stakes start feeling fake when every adult in the room ignores giant red flags.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Chainsaw Man's Makima Is an Overrated Villain Built Purely on Simp Culture",
+    text: "Makima is an overrated villain whose popularity comes more from simp culture than actual complexity. Her cold demeanor and shocking twists make her look deeper than she really is, but her motivations are not especially rich compared to great anime antagonists. Strip away the aura, and she becomes a stylish plot device with a fan club.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "JoJo's Bizarre Adventure Part 3 Is a Boring Monster-of-the-Week Slog",
+    text: "JoJo Part 3 is a monster-of-the-week slog that takes forever to reach the good stuff. Stardust Crusaders introduced Stands, then trapped itself in a repetitive formula where the crew enters a town, meets a random assassin, and punches through the problem. By Egypt, the journey feels less bizarre and more exhausting.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Dragon Ball Super Completely Destroyed Goku's Character and All Stakes",
+    text: "Dragon Ball Super destroyed Goku's character by turning a battle genius into a reckless man-child with multiverse access. He used to have martial wisdom under the stupidity, but now he risks existence because strong opponents sound fun. Once gods, angels, and cosmic resets entered the story, death and training stopped feeling serious.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Your Lie in April Uses Trauma as Cheap Emotional Bait Instead of Real Drama",
+    text: "Your Lie in April uses trauma as emotional bait more than it explores it with real depth. The show leans on terminal illness, melodrama, and tough-love abuse to force tears instead of building healthier drama. Beautiful music can hide a lot, but it cannot make every death flag feel profound.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "The Promised Neverland Season 2 Is the Greatest Disgrace in Anime History",
+    text: "The Promised Neverland season 2 is one of anime's biggest betrayals because it speed-ran its own collapse. Skipping a beloved manga arc and replacing the story with a rushed slideshow finale was unforgivable. Season one built psychological suspense like a masterpiece, then season two destroyed the escape route and the legacy.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Fire Force's Excessive Fan Service Completely Ruins Its Highest-Stakes Action Scenes",
+    text: "Fire Force ruins serious action scenes by shoving fan service into moments that should have dramatic weight. Life-or-death battles lose tension when the story suddenly forces awkward exposure gags into suffering and survival. If a scene wants grief, danger, and stakes, it should not also be begging for cheap screenshots.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Re:Zero's Subaru Is an Unbearable Protagonist Who Makes the Show Unwatchable",
+    text: "Subaru makes Re:Zero hard to watch because his early entitlement is almost more painful than the time loops. The mechanic is interesting, but the audience still has to endure whining, social cluelessness, and embarrassing obsession with Emilia. Dark fantasy works better when the protagonist is not the loudest obstacle.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
 ];
