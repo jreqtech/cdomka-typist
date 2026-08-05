@@ -283,7 +283,7 @@ function calculateStats() {
   const totalTypedChars = typed.length + extraCharCount;
   const elapsedSeconds = state.startedAt ? Math.max((Date.now() - state.startedAt) / 1000, 1) : 1;
   const grossWpm = totalTypedChars / 5 / (elapsedSeconds / 60);
-  const accuracy = totalTypedChars ? (correctChars / totalTypedChars) * 100 : 100;
+  const accuracy = totalTypedChars ? (correctChars / totalTypedChars) * 100 : 0;
   const score = grossWpm * (accuracy / 100);
 
   return {
