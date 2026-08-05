@@ -198,6 +198,10 @@ body:not([data-mode="competition"]).showing-result .words {
   user-select: none;
 }
 
+body:not([data-mode="competition"]).showing-result .test {
+  grid-row: 4;
+}
+
 .timer {
   height: 42px;
   color: var(--main-color);
@@ -330,6 +334,21 @@ body[data-mode="competition"].showing-result .words {
   margin-top: clamp(16px, 3vh, 40px);
 }
 
+body:not([data-mode="competition"]).showing-result .result {
+  position: relative;
+  z-index: 4;
+  grid-row: 4;
+  align-self: start;
+  margin-top: clamp(36px, 7vh, 82px);
+  min-height: 244px;
+  pointer-events: none;
+}
+
+body:not([data-mode="competition"]).showing-result .name-form,
+body:not([data-mode="competition"]).showing-result .result-actions {
+  pointer-events: auto;
+}
+
 body[data-mode="competition"].showing-result .page {
   padding-bottom: 260px;
 }
@@ -353,6 +372,7 @@ body[data-mode="competition"].showing-result .page {
   flex-basis: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 12px;
 }
 
