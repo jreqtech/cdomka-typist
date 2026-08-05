@@ -206,8 +206,10 @@ body[data-mode="competition"].showing-result .test {
   display: none;
 }
 
-body:not([data-mode="competition"]).showing-result .test {
-  display: none;
+body:not([data-mode="competition"]).showing-result .words {
+  filter: blur(8px);
+  opacity: 0.28;
+  user-select: none;
 }
 
 .timer {
