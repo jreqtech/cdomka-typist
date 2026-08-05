@@ -236,10 +236,11 @@ body[data-mode="competition"].awaiting-start .words {
 
 body[data-mode="competition"].awaiting-start .test::after {
   content: "press space to begin";
-  grid-column: 1;
-  grid-row: 2;
-  align-self: stretch;
-  justify-self: stretch;
+  position: absolute;
+  top: calc(clamp(36px, 7vh, 82px) + 42px + 20px);
+  left: 0;
+  right: 0;
+  height: 244px;
   display: grid;
   place-items: center;
   color: var(--main-color);
