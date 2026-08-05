@@ -592,4 +592,18 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "gaming",
     size: "thicc"
   },
+  {
+    title: "Project Sekai Fans Are Rhythm Game Tourists",
+    text: "Project Sekai fans act like they discovered Vocaloid, but many of them entered through anime-style gacha groups and only know the songs that appeared in-game. Loving Project Sekai is fine, but pretending it makes someone a deep Vocaloid historian is hilarious. Some fans know every card rarity but cannot name the producer of the song they are grinding.",
+    source: "Vocaloid Debate Topic",
+    category: "vocaloid",
+    size: "thicc"
+  },
+  {
+    title: "Miku Expo Is Just Karaoke With a Fancy Screen",
+    text: "Miku Expo is basically a massive karaoke session where everyone agrees to pretend the glowing screen is a real idol. The music and crowd energy are great, but the concept is still wonderfully absurd. People will criticize idol anime for being manufactured, then cry over a projected singer made from voice software and collective imagination.",
+    source: "Vocaloid Debate Topic",
+    category: "vocaloid",
+    size: "thicc"
+  },
 ];
