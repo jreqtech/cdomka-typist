@@ -565,6 +565,11 @@ function renderLeaderboard() {
   });
 }
 
+function openLeaderboard() {
+  renderLeaderboard();
+  if (!leaderboardDialog.open) leaderboardDialog.showModal();
+}
+
 function savePendingScore() {
   if (!state.pendingScore) return;
 
@@ -660,8 +665,23 @@ document.addEventListener("keydown", (event) => {
   const isTypingName = target === playerNameEl;
   const isCommand = event.ctrlKey || event.metaKey || event.altKey;
   const isPrintable = event.key.length === 1;
+  const isTypingTest = document.activeElement === inputEl && state.startedAt && !state.finished;
 
-  if (isTypingName || isCommand || state.finished) return;
+  if (leaderboardDialog.open || isCommand) return;
+
+  if (!isTypingName && event.key === "Escape") {
+    event.preventDefault();
+    startTest();
+    return;
+  }
+
+  if (!isTypingName && event.key.toLowerCase() === "l" && !isTypingTest) {
+    event.preventDefault();
+    openLeaderboard();
+    return;
+  }
+
+  if (isTypingName || state.finished) return;
 
   if (state.awaitingCompetitionStart) {
     event.preventDefault();
@@ -707,8 +727,7 @@ clearScoresButton.addEventListener("click", () => {
 });
 
 leaderboardButton.addEventListener("click", () => {
-  renderLeaderboard();
-  leaderboardDialog.showModal();
+  openLeaderboard();
 });
 
 closeLeaderboardButton.addEventListener("click", () => {
