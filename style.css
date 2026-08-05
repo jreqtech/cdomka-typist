@@ -354,6 +354,15 @@ body[data-mode="competition"].showing-result .page {
   gap: 10px;
 }
 
+.name-form label > span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .result div {
   display: grid;
   justify-items: center;
