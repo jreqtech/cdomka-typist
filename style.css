@@ -235,15 +235,8 @@ body[data-mode="competition"].awaiting-start .words {
 }
 
 body[data-mode="competition"].awaiting-start .timer {
-  position: absolute;
-  top: calc(clamp(36px, 7vh, 82px) + 42px + 20px);
-  left: 0;
-  right: 0;
-  height: 244px;
-  display: grid;
-  place-items: center;
-  transform: translateY(-2.2em);
-  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
 }
 
 body[data-mode="competition"].awaiting-start .test::after {
