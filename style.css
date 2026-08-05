@@ -60,9 +60,9 @@ button.active {
   min-height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: auto auto auto minmax(260px, 0.72fr) auto 1fr auto;
+  grid-template-rows: auto auto minmax(0, 1fr);
   gap: 22px;
-  padding: 34px 0 200px;
+  padding: 34px 0 164px;
 }
 
 .nav {
@@ -177,6 +177,7 @@ textarea:focus {
 
 .test {
   position: relative;
+  grid-row: 3;
   grid-column: 1 / -1;
   align-self: start;
   height: 360px;
@@ -188,10 +189,10 @@ textarea:focus {
 }
 
 body[data-mode="competition"].showing-result .test {
-  grid-row: 5;
+  grid-row: 3;
   height: auto;
   min-height: 0;
-  padding-top: 0;
+  padding-top: clamp(236px, 28vh, 292px);
 }
 
 .showing-result .timer {
@@ -204,7 +205,7 @@ body:not([data-mode="competition"]).showing-result .words {
 }
 
 body:not([data-mode="competition"]).showing-result .test {
-  grid-row: 4;
+  grid-row: 3;
 }
 
 .timer {
@@ -336,14 +337,14 @@ body[data-mode="competition"].showing-result .words {
 }
 
 .showing-result .result {
-  grid-row: 4;
+  grid-row: 3;
   margin-top: clamp(16px, 3vh, 40px);
 }
 
 body:not([data-mode="competition"]).showing-result .result {
   position: relative;
   z-index: 4;
-  grid-row: 4;
+  grid-row: 3;
   align-self: start;
   margin-top: clamp(52px, 9vh, 104px);
   min-height: 244px;
@@ -356,7 +357,7 @@ body:not([data-mode="competition"]).showing-result .result-actions {
 }
 
 body[data-mode="competition"].showing-result .page {
-  padding-bottom: 260px;
+  padding-bottom: 150px;
 }
 
 .name-form {
@@ -1005,7 +1006,7 @@ tbody tr:first-child td {
 
 @media (max-height: 850px) {
   .page {
-    padding-bottom: 132px;
+    padding-bottom: 118px;
   }
 
   .test {
@@ -1026,7 +1027,11 @@ tbody tr:first-child td {
   }
 
   body[data-mode="competition"].showing-result .page {
-    padding-bottom: 190px;
+    padding-bottom: 118px;
+  }
+
+  body[data-mode="competition"].showing-result .test {
+    padding-top: 220px;
   }
 
   .event-logos img {
