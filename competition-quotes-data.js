@@ -76,7 +76,7 @@ window.CDOMKA_COMPETITION_QUOTES = [
     size: "medium"
   },
   {
-    text: "The world isn't perfect. But it's there for us, doing the best it can. That's what makes it so damn beautiful.",
+    text: "The world isn't perfect. But it's there for us, doing the best it can. That's what makes it so beautiful.",
     source: "Roy Mustang (Fullmetal Alchemist: Brotherhood)",
     category: "anime",
     size: "medium"
@@ -173,8 +173,8 @@ window.CDOMKA_COMPETITION_QUOTES = [
     size: "thicc"
   },
   {
-    title: "Dark Fantasy Is Just Edgy Shonen for Adults Who Hate Themselves",
-    text: "Dark fantasy is just edgy shonen for adults who refuse to admit they still like shonen. The formula is the same: a tortured guy gets a massive sword, loses his friends, and fights a god under terrible lighting. Adding blood, swearing, and leather does not make it deeper; it just makes the opening credits moodier.",
+    title: "Dark Fantasy Is Just Moody Shonen With Extra Shadows",
+    text: "Dark fantasy is just edgy shonen wearing a serious costume. The formula is the same: a tortured hero gets a massive sword, loses friends, and fights a god under terrible lighting. Adding grim scenery, tragedy, and whispered monologues does not make it deeper; it just makes the opening credits moodier.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -223,7 +223,7 @@ window.CDOMKA_COMPETITION_QUOTES = [
   },
   {
     title: "Chainsaw Man and Jujutsu Kaisen Are Just Hot-Topic Shonen for People Who Pretend They Don't Like Anime",
-    text: "Chainsaw Man and Jujutsu Kaisen are Hot-Topic shonen for people who pretend they outgrew anime. Under the gore, trauma, and cinematic direction, it is still the same demon-slaying formula shonen has used for decades. Darker colors do not make it high art; they just make the merch easier to wear in public.",
+    text: "Chainsaw Man and Jujutsu Kaisen are Hot-Topic shonen for people who pretend they outgrew anime. Under the darker tone, monster designs, and cinematic direction, it is still the same demon-fighting formula shonen has used for decades. Serious colors do not make it high art; they just make the merch easier to wear in public.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -300,7 +300,7 @@ window.CDOMKA_COMPETITION_QUOTES = [
   },
   {
     title: "Cyberpunk: Edgerunners Was Carried Entirely by Visuals and One Song",
-    text: "Cyberpunk: Edgerunners was carried by Studio Trigger's visuals and one song more than by its actual writing. Strip away the neon gore and catchy soundtrack, and the plot is just a kid taking too much power while ignoring obvious warnings. The story moves so fast that fans mistake emotional whiplash for elite character development.",
+    text: "Cyberpunk: Edgerunners was carried by Studio Trigger's visuals and one song more than by its actual writing. Strip away the neon spectacle and catchy soundtrack, and the plot is just a kid taking too much power while ignoring obvious warnings. The story moves so fast that fans mistake emotional whiplash for elite character development.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -363,7 +363,7 @@ window.CDOMKA_COMPETITION_QUOTES = [
   },
   {
     title: "Jujutsu Kaisen's Shibuya Arc Is Overrated Chaos Without Real Substance",
-    text: "Jujutsu Kaisen's Shibuya arc is overrated chaos pretending to be deep storytelling. It throws fights, destruction, and shock deaths at the screen so quickly that character dynamics and world-building get buried under rubble. Killing half the room is not automatically profound; sometimes it is just a noisy battle royale.",
+    text: "Jujutsu Kaisen's Shibuya arc is overrated chaos pretending to be deep storytelling. It throws fights, destruction, and surprise exits at the screen so quickly that character dynamics and world-building get buried under rubble. Removing half the cast is not automatically profound; sometimes it is just a noisy battle royale.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -418,8 +418,8 @@ window.CDOMKA_COMPETITION_QUOTES = [
     size: "thicc"
   },
   {
-    title: "Chainsaw Man's Makima Is an Overrated Villain Built Purely on Simp Culture",
-    text: "Makima is an overrated villain whose popularity comes more from simp culture than actual complexity. Her cold demeanor and shocking twists make her look deeper than she really is, but her motivations are not especially rich compared to great anime antagonists. Strip away the aura, and she becomes a stylish plot device with a fan club.",
+    title: "Chainsaw Man's Makima Is More Aesthetic Than Complex",
+    text: "Makima is an overrated villain whose popularity comes more from aura than actual complexity. Her cold demeanor and shocking twists make her look deeper than she really is, but her motivations are not especially rich compared to great anime antagonists. Strip away the style, and she becomes a polished plot device with a fan club.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -453,8 +453,8 @@ window.CDOMKA_COMPETITION_QUOTES = [
     size: "thicc"
   },
   {
-    title: "Fire Force's Excessive Fan Service Completely Ruins Its Highest-Stakes Action Scenes",
-    text: "Fire Force ruins serious action scenes by shoving fan service into moments that should have dramatic weight. Life-or-death battles lose tension when the story suddenly forces awkward exposure gags into suffering and survival. If a scene wants grief, danger, and stakes, it should not also be begging for cheap screenshots.",
+    title: "Fire Force's Comedy Timing Ruins Its Highest-Stakes Action Scenes",
+    text: "Fire Force ruins serious action scenes by shoving comedy into moments that should have dramatic weight. Major battles lose tension when the story suddenly forces awkward gags into scenes about danger and survival. If a moment wants grief, pressure, and stakes, it should not also be begging for cheap reaction clips.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -482,7 +482,7 @@ window.CDOMKA_COMPETITION_QUOTES = [
   },
   {
     title: "Modern Anime Villains Are Weak Excuses for Real Antagonists Because of Forced Sympathy",
-    text: "Modern anime villains are weaker because every monster now gets a tragic flashback coupon before dying. A sad childhood does not erase serial murder, war crimes, or a season of unforgivable damage. Sometimes a story needs a villain audiences can hate without being asked to cry over their piano lesson.",
+    text: "Modern anime villains are weaker because every monster now gets a tragic flashback coupon before the finale. A sad childhood does not erase terrible choices, wrecked cities, or a season of unforgivable damage. Sometimes a story needs a villain audiences can boo without being asked to cry over their piano lesson.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
@@ -539,13 +539,6 @@ window.CDOMKA_COMPETITION_QUOTES = [
   {
     title: "Gacha Game Power Creep Guarantees Their Anime Endings Will Feel Pointless",
     text: "Gacha game anime endings feel pointless because the source material is designed to never truly end. New characters must keep breaking the meta, power scaling collapses, and the story cannot close without hurting the app. The anime is stuck selling a finale for a machine that survives by refusing to have one.",
-    source: "Anime Debate Topic",
-    category: "anime",
-    size: "thicc"
-  },
-  {
-    title: "Ecchi Anime Is Just Dishonest Hentai That Cowardly Refuses to Commit",
-    text: "Ecchi anime is dishonest because it builds itself around fan service while pretending it is doing something else. The genre relies on accidental slips, censorship beams, and endless teasing instead of either committing to adult content or writing an actual story. It is creative cowardice dressed up as comedy, and everyone knows exactly what it is selling.",
     source: "Anime Debate Topic",
     category: "anime",
     size: "thicc"
