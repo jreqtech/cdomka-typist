@@ -176,7 +176,8 @@ textarea:focus {
 }
 
 .start,
-#nextButton {
+#nextButton,
+#repeatButton {
   min-height: 38px;
   padding: 0 14px;
   background: var(--button-color);
@@ -361,6 +362,13 @@ body[data-mode="competition"].showing-result .page {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+.result-actions {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
 .result div {

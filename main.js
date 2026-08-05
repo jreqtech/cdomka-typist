@@ -4,6 +4,7 @@ const playerNameEl = document.getElementById("playerName");
 const nameForm = document.getElementById("nameForm");
 const saveScoreButton = document.getElementById("saveScoreButton");
 const startButton = document.getElementById("startButton");
+const repeatButton = document.getElementById("repeatButton");
 const nextButton = document.getElementById("nextButton");
 const leaderboardButton = document.getElementById("leaderboardButton");
 const leaderboardDialog = document.getElementById("leaderboardDialog");
@@ -84,7 +85,8 @@ const state = {
   pendingScore: null
   ,
   currentQuoteSource: "",
-  awaitingCompetitionStart: false
+  awaitingCompetitionStart: false,
+  preserveTarget: false
 };
 
 function randomItem(items) {
@@ -198,6 +200,13 @@ function getCompetitionQuotes() {
 function configureTest() {
   document.body.dataset.mode = state.mode;
 
+  if (state.preserveTarget && state.targetText) {
+    updateTimerLabel();
+    setCompetitionAwaiting(state.mode === "competition");
+    state.preserveTarget = false;
+    return;
+  }
+
   if (state.mode === "time") {
     setCompetitionAwaiting(false);
     state.targetText = buildWords(160);
@@ -236,6 +245,13 @@ function configureTest() {
     timerEl.textContent = state.options.competitionTime;
     setCompetitionAwaiting(true);
   }
+}
+
+function updateTimerLabel() {
+  if (state.mode === "time") timerEl.textContent = state.options.time;
+  if (state.mode === "words") timerEl.textContent = "words";
+  if (state.mode === "quote") timerEl.textContent = state.options.quote;
+  if (state.mode === "competition") timerEl.textContent = state.options.competitionTime;
 }
 
 function setCompetitionAwaiting(value) {
@@ -642,6 +658,11 @@ document.querySelectorAll(".option").forEach((button) => {
 });
 
 startButton.addEventListener("click", startTest);
+repeatButton.addEventListener("click", () => {
+  savePendingScore();
+  state.preserveTarget = true;
+  startTest();
+});
 nextButton.addEventListener("click", () => {
   savePendingScore();
   startTest();
