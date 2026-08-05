@@ -543,4 +543,11 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "anime",
     size: "thicc"
   },
+  {
+    title: "Ecchi Anime Is Just Dishonest Hentai That Cowardly Refuses to Commit",
+    text: "Ecchi anime is dishonest because it builds itself around fan service while pretending it is doing something else. The genre relies on accidental slips, censorship beams, and endless teasing instead of either committing to adult content or writing an actual story. It is creative cowardice dressed up as comedy, and everyone knows exactly what it is selling.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
 ];
