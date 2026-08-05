@@ -126,6 +126,11 @@ label {
   color: var(--sub-color);
 }
 
+.player-row,
+#startButton {
+  display: none;
+}
+
 input {
   min-height: 38px;
   border: 0;
@@ -365,6 +370,8 @@ body[data-mode="competition"].showing-result .page {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
   gap: 12px;
 }
 
