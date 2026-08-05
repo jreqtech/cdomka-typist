@@ -120,13 +120,6 @@ button.active {
   font-weight: 800;
 }
 
-.player-row {
-  justify-self: center;
-  display: flex;
-  align-items: end;
-  gap: 12px;
-}
-
 label {
   display: grid;
   gap: 6px;
@@ -160,7 +153,6 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-.start,
 #nextButton,
 #repeatButton {
   min-height: 38px;
@@ -525,7 +517,6 @@ tbody tr:first-child td {
 
 .focus .nav,
 .focus .controls,
-.focus .player-row,
 .focus footer {
   opacity: 0.12;
 }
@@ -674,12 +665,6 @@ tbody tr:first-child td {
 
   .option-row {
     flex-wrap: wrap;
-  }
-
-  .player-row {
-    justify-self: stretch;
-    align-items: stretch;
-    flex-direction: column;
   }
 
   .result {

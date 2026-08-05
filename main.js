@@ -3,7 +3,6 @@ const inputEl = document.getElementById("typingInput");
 const playerNameEl = document.getElementById("playerName");
 const nameForm = document.getElementById("nameForm");
 const saveScoreButton = document.getElementById("saveScoreButton");
-const startButton = document.getElementById("startButton");
 const repeatButton = document.getElementById("repeatButton");
 const nextButton = document.getElementById("nextButton");
 const leaderboardButton = document.getElementById("leaderboardButton");
@@ -483,7 +482,6 @@ function renderTimer() {
 function beginTest() {
   if (state.startedAt || state.finished || state.awaitingCompetitionStart) return;
   state.startedAt = Date.now();
-  startButton.textContent = "restart";
   state.timer = setInterval(renderTimer, 200);
   renderTimer();
 }
@@ -522,7 +520,6 @@ function startTest() {
   quoteSourceEl.classList.add("hidden");
   quoteSourceEl.textContent = "";
   inputEl.disabled = state.mode === "quote" && !monkeytypeQuotes.length;
-  startButton.textContent = "restart";
   resultEl.classList.add("hidden");
   document.body.classList.remove("showing-result");
   renderWords();
@@ -537,7 +534,6 @@ function finishTest() {
   clearInterval(state.timer);
   inputEl.disabled = true;
   caretEl.classList.add("hidden");
-  startButton.textContent = "restart";
 
   const stats = calculateStats();
   state.lastStats = stats;
@@ -628,7 +624,6 @@ function resetTest() {
   quoteSourceEl.classList.add("hidden");
   quoteSourceEl.textContent = "";
   inputEl.disabled = state.mode === "quote" && !monkeytypeQuotes.length;
-  startButton.textContent = "restart";
   resultEl.classList.add("hidden");
   document.body.classList.remove("showing-result");
   renderWords();
@@ -656,7 +651,6 @@ document.querySelectorAll(".option").forEach((button) => {
   });
 });
 
-startButton.addEventListener("click", startTest);
 repeatButton.addEventListener("click", () => {
   savePendingScore();
   state.preserveTarget = true;
