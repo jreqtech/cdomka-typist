@@ -466,4 +466,81 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "anime",
     size: "thicc"
   },
+  {
+    title: "Manga Spoiler Droppers Are the Absolute Worst Part of the Community",
+    text: "Manga spoiler droppers are the worst part of the anime community because they treat every comment section like a crime scene. Their need to prove they read ahead ruins surprise, tension, and emotional impact for everyone else. Nobody asked for a smug hint under a hype video just because you survived the source material first.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Slice-of-Life Anime Promotes an Unrealistic Fantasy Far Worse Than Any Isekai",
+    text: "Slice-of-life anime sells a more unrealistic fantasy than isekai because it pretends school is peaceful, charming, and emotionally safe. At least nobody expects to get trucked into another world, but plenty of viewers expect effortless friendships and cozy afternoons. Real life has deadlines, awkward silence, and group projects with villains.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Modern Anime Villains Are Weak Excuses for Real Antagonists Because of Forced Sympathy",
+    text: "Modern anime villains are weaker because every monster now gets a tragic flashback coupon before dying. A sad childhood does not erase serial murder, war crimes, or a season of unforgivable damage. Sometimes a story needs a villain audiences can hate without being asked to cry over their piano lesson.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Overpowered Protagonists Vaporize All Narrative Stakes and Make Battles Boring",
+    text: "Overpowered protagonists make battles boring because the outcome is already dead before the fight starts. Watching a hero delete every enemy without sweating turns action into a screensaver with sound effects. If nobody can threaten the main character, the only suspense left is whether the animation budget survives.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Cliffhanger Endings Are Cheap Manipulation Tools Used by Lazy Writers",
+    text: "Cliffhanger endings are cheap traps for shows that cannot earn real suspense. Cutting to black in the middle of a sentence is not the same as building compelling characters, stakes, and world-building. A good anime makes viewers return because they care, not because the editor hid the last five seconds.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "The Tsundere Trope Normalizes Toxic Abusive Behavior Masked as Cute Romance",
+    text: "The tsundere trope is toxic behavior wearing a cute ribbon and calling itself romance. Punching, insulting, and humiliating someone because feelings are embarrassing is not charming character writing. Anime needs fewer love interests who communicate through violence and more characters who discovered basic emotional vocabulary.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Gacha Anime Adaptations Are High-Budget Commercials Designed to Drain Your Savings",
+    text: "Gacha anime adaptations are high-budget commercials pretending to be stories. The plots are messy, the cast is overcrowded, and half the characters exist because a banner needed emotional justification. If the story only makes sense after reading event lore and losing money to JPEG gambling, it is an advertisement.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Western Live-Action Adaptations Are Inherently Doomed to Uncanny-Valley Failure",
+    text: "Western live-action anime adaptations are doomed because anime logic looks cursed on real actors. Colorful hair, exaggerated expressions, and impossible combat work better when animation carries the style. Hollywood keeps stripping away the medium's strengths, then wonders why the result looks like cosplay trapped in a tax write-off.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "VTuber Culture Is Replacing Idol Anime Because Unscripted Chaos Beats Fake Tropes",
+    text: "VTuber culture is replacing idol anime because unscripted chaos beats predictable idol tropes. Viewers would rather watch real-time jokes, mistakes, chat interaction, and gaming disasters than another polished corporate song arc. A live personality panicking over a boss fight can feel more human than ten fictional idols smiling in formation.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Love Triangles Are Lazy Shortcuts for Writers Who Can't Write Depth",
+    text: "Love triangles are lazy romance padding for writers who cannot build depth between two people. They drag a simple relationship across seasons, manufacture jealousy, and start shipping wars that make everyone worse. The obvious winner usually wins anyway, so the entire triangle is just emotional traffic congestion.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Gacha Game Power Creep Guarantees Their Anime Endings Will Feel Pointless",
+    text: "Gacha game anime endings feel pointless because the source material is designed to never truly end. New characters must keep breaking the meta, power scaling collapses, and the story cannot close without hurting the app. The anime is stuck selling a finale for a machine that survives by refusing to have one.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
 ];
