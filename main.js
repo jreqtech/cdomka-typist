@@ -15,12 +15,14 @@ const resultEl = document.getElementById("result");
 const resultWpmEl = document.getElementById("resultWpm");
 const resultAccuracyEl = document.getElementById("resultAccuracy");
 const resultScoreEl = document.getElementById("resultScore");
+const resultRankEl = document.getElementById("resultRank");
 const quoteSourceEl = document.getElementById("quoteSource");
 const focusButton = document.getElementById("focusButton");
 const caretEl = document.getElementById("caret");
 
 const STORAGE_KEY = "cdomkaTypingLeaderboard";
 const COMPETITION_TEXT_KEY = "cdomkaCompetitionTexts";
+const IDLE_TIMEOUT_MS = 5000;
 
 const wordBank = [
   "the", "be", "of", "and", "a", "to", "in", "he", "have", "it", "that", "for",
@@ -86,7 +88,8 @@ const state = {
   awaitingCompetitionStart: false,
   preserveTarget: false,
   keyPresses: 0,
-  correctKeyPresses: 0
+  correctKeyPresses: 0,
+  lastInputAt: null
 };
 
 function randomItem(items) {
@@ -416,6 +419,7 @@ function countExtraChars() {
 
 function recordTypedKey(char) {
   const index = inputEl.value.length;
+  state.lastInputAt = Date.now();
   state.keyPresses += 1;
   if (state.targetText[index] === char) {
     state.correctKeyPresses += 1;
@@ -484,7 +488,14 @@ function positionCaret() {
 }
 
 function renderTimer() {
-  if (!["time", "competition"].includes(state.mode) || !state.startedAt) return;
+  if (!state.startedAt || state.finished) return;
+
+  if (state.lastInputAt && Date.now() - state.lastInputAt >= IDLE_TIMEOUT_MS) {
+    finishTest();
+    return;
+  }
+
+  if (!["time", "competition"].includes(state.mode)) return;
   const timeLimit = state.mode === "competition" ? state.options.competitionTime : state.options.time;
   const remaining = Math.max(0, timeLimit - Math.floor((Date.now() - state.startedAt) / 1000));
   timerEl.textContent = remaining;
@@ -494,6 +505,7 @@ function renderTimer() {
 function beginTest() {
   if (state.startedAt || state.finished || state.awaitingCompetitionStart) return;
   state.startedAt = Date.now();
+  state.lastInputAt = state.startedAt;
   state.timer = setInterval(renderTimer, 200);
   renderTimer();
 }
@@ -502,10 +514,21 @@ function renderResult(stats) {
   resultWpmEl.textContent = stats.wpm;
   resultAccuracyEl.textContent = `${stats.accuracy}%`;
   resultScoreEl.textContent = stats.score;
+  resultRankEl.textContent = getRank(stats.score);
   const shouldShowSource = state.mode !== "competition" && state.currentQuoteSource;
   quoteSourceEl.textContent = shouldShowSource ? state.currentQuoteSource : "";
   quoteSourceEl.classList.toggle("hidden", !shouldShowSource);
   resultEl.classList.remove("hidden");
+}
+
+function getRank(score) {
+  if (score >= 120) return "S+";
+  if (score >= 100) return "S";
+  if (score >= 80) return "A";
+  if (score >= 60) return "B";
+  if (score >= 40) return "C";
+  if (score >= 20) return "D";
+  return "F";
 }
 
 function modeLabel() {
@@ -526,6 +549,7 @@ function startTest() {
   inputEl.value = "";
   state.keyPresses = 0;
   state.correctKeyPresses = 0;
+  state.lastInputAt = null;
   renderedTarget = "";
   wordsEl.scrollTop = 0;
   playerNameEl.value = "";
@@ -632,6 +656,7 @@ function resetTest() {
   inputEl.value = "";
   state.keyPresses = 0;
   state.correctKeyPresses = 0;
+  state.lastInputAt = null;
   renderedTarget = "";
   wordsEl.scrollTop = 0;
   playerNameEl.value = "";
@@ -668,12 +693,10 @@ document.querySelectorAll(".option").forEach((button) => {
 });
 
 repeatButton.addEventListener("click", () => {
-  savePendingScore();
   state.preserveTarget = true;
   startTest();
 });
 nextButton.addEventListener("click", () => {
-  savePendingScore();
   startTest();
 });
 
@@ -695,19 +718,12 @@ document.addEventListener("keydown", (event) => {
   const isTypingName = target === playerNameEl;
   const isCommand = event.ctrlKey || event.metaKey || event.altKey;
   const isPrintable = event.key.length === 1;
-  const isTypingTest = document.activeElement === inputEl && state.startedAt && !state.finished;
 
   if (leaderboardDialog.open || isCommand) return;
 
   if (event.key === "Escape" || event.code === "Escape") {
     event.preventDefault();
     startTest();
-    return;
-  }
-
-  if (!isTypingName && event.key.toLowerCase() === "l" && !isTypingTest) {
-    event.preventDefault();
-    openLeaderboard();
     return;
   }
 

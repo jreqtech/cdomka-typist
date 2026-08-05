@@ -59,28 +59,35 @@
       </section>
 
       <section id="result" class="result hidden" aria-label="Result">
-        <div>
-          <span id="resultWpm">0</span>
-          <small>wpm</small>
+        <div class="rank-card" aria-label="Result rank">
+          <span id="resultRank">F</span>
         </div>
-        <div>
-          <span id="resultAccuracy">100%</span>
-          <small>acc</small>
-        </div>
-        <div>
-          <span id="resultScore">0</span>
-          <small>score</small>
-        </div>
-        <form id="nameForm" class="name-form">
-          <label>
-            <span>name</span>
-            <input id="playerName" type="text" maxlength="24" autocomplete="off" placeholder="name (optional)">
-          </label>
-          <button id="saveScoreButton" type="submit">save</button>
-        </form>
-        <div class="result-actions">
-          <button id="repeatButton" type="button">repeat test</button>
-          <button id="nextButton" type="button">next test</button>
+        <div class="result-main">
+          <div class="result-stats">
+            <div>
+              <span id="resultWpm">0</span>
+              <small>wpm</small>
+            </div>
+            <div>
+              <span id="resultAccuracy">100%</span>
+              <small>acc</small>
+            </div>
+            <div>
+              <span id="resultScore">0</span>
+              <small>score</small>
+            </div>
+          </div>
+          <div class="result-actions">
+            <button id="repeatButton" type="button">repeat test</button>
+            <button id="nextButton" type="button">next test</button>
+          </div>
+          <form id="nameForm" class="name-form">
+            <label>
+              <span>name</span>
+              <input id="playerName" type="text" maxlength="24" autocomplete="off" placeholder="name (optional)">
+            </label>
+            <button id="saveScoreButton" type="submit">save</button>
+          </form>
         </div>
         <p id="quoteSource" class="quote-source hidden"></p>
       </section>

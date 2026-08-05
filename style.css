@@ -318,13 +318,13 @@ body[data-mode="competition"].showing-result .words {
 
 .result {
   grid-column: 1 / -1;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 22px;
   margin-top: clamp(32px, 6vh, 84px);
   min-height: 96px;
-  flex-wrap: wrap;
 }
 
 .showing-result .result {
@@ -353,7 +353,7 @@ body[data-mode="competition"].showing-result .page {
 
 .name-form {
   display: flex;
-  align-items: end;
+  align-items: center;
   gap: 10px;
 }
 
@@ -367,25 +367,50 @@ body[data-mode="competition"].showing-result .page {
 }
 
 .result-actions {
-  flex: 0 0 100%;
-  width: max-content;
+  width: 100%;
   display: grid;
   grid-template-columns: max-content max-content;
   grid-auto-flow: column;
   justify-content: center;
   align-items: center;
   gap: 12px;
-  margin: 0 auto;
+}
+
+.result-main {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+}
+
+.result-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
 }
 
 .result-actions button {
   white-space: nowrap;
 }
 
-.result div {
+.result-stats div {
   display: grid;
   justify-items: center;
   min-width: 92px;
+}
+
+.rank-card {
+  display: grid;
+  justify-items: center;
+  min-width: 190px;
+}
+
+.result .rank-card span {
+  min-width: 0;
+  font-size: 11rem;
+  font-weight: 900;
+  line-height: 0.9;
+  text-shadow: 0 0 18px rgba(255, 222, 89, 0.28), 0 2px 14px rgba(0, 0, 0, 0.45);
 }
 
 .result span {
@@ -682,6 +707,11 @@ tbody tr:first-child td {
   }
 
   .result {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .result-stats {
     flex-wrap: wrap;
   }
 
