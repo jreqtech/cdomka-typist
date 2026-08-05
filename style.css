@@ -206,6 +206,10 @@ body[data-mode="competition"].showing-result .test {
   display: none;
 }
 
+body:not([data-mode="competition"]).showing-result .test {
+  display: none;
+}
+
 .timer {
   height: 42px;
   color: var(--main-color);
