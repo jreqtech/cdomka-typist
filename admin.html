@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CDOMKA Competition Text Editor</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page admin-page">
+      <header class="nav">
+        <a class="brand" href="index.html" aria-label="Back to typing challenge">
+          <img class="brand-logo" src="assets/cdomka-logo.png" alt="">
+          <span>CDOMKA</span>
+        </a>
+        <p id="status" class="admin-status">local competition text</p>
+      </header>
+
+      <section class="admin-shell" aria-label="Competition text editor">
+        <aside class="admin-list-panel">
+          <div class="admin-panel-head">
+            <h1>competition text</h1>
+            <button id="addText" class="start" type="button">add</button>
+          </div>
+          <div id="textList" class="admin-list"></div>
+        </aside>
+
+        <form id="textForm" class="admin-editor">
+          <label>
+            <span>title</span>
+            <input id="titleInput" type="text" autocomplete="off" required>
+          </label>
+
+          <label>
+            <span>text</span>
+            <textarea id="bodyInput" required></textarea>
+          </label>
+
+          <div class="admin-actions">
+            <button id="saveText" class="start" type="submit">save</button>
+            <button id="deleteText" type="button">delete</button>
+            <button id="resetTexts" type="button">reset defaults</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script src="competition-quotes-data.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

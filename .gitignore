@@ -1,0 +1,16 @@
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Raw design/source asset dumps kept outside the distributable app
+New folder/
+data/
+
+# Local-only files
+.env
+.env.*
+
+# Dependency/build folders if tooling is added later
+node_modules/
+dist/
+build/

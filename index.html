@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CDOMKA Typing Challenge</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="nav">
+        <a class="brand" href="#" aria-label="CDOMKA typing challenge home">
+          <img class="brand-logo" src="assets/cdomka-logo.png" alt="">
+          <span>CDOMKA</span>
+        </a>
+        <nav class="nav-actions" aria-label="App actions">
+          <button id="focusButton" class="icon-button" type="button" title="Focus mode">focus</button>
+          <button id="themeButton" class="icon-button" type="button" title="Toggle theme">theme</button>
+          <button id="leaderboardButton" class="icon-button" type="button" title="Show leaderboard">leaderboard</button>
+        </nav>
+      </header>
+
+      <section class="controls" aria-label="Typing settings">
+        <div class="mode-row">
+          <button class="mode active" data-mode="time" type="button">time</button>
+          <button class="mode" data-mode="words" type="button">words</button>
+          <button class="mode" data-mode="quote" type="button">quote</button>
+          <button class="mode" data-mode="competition" type="button">competition</button>
+        </div>
+        <div class="option-row" data-options="time">
+          <button class="option active" data-value="15" type="button">15</button>
+          <button class="option" data-value="30" type="button">30</button>
+          <button class="option" data-value="60" type="button">60</button>
+          <button class="option" data-value="120" type="button">120</button>
+        </div>
+        <div class="option-row hidden" data-options="words">
+          <button class="option active" data-value="10" type="button">10</button>
+          <button class="option" data-value="25" type="button">25</button>
+          <button class="option" data-value="50" type="button">50</button>
+          <button class="option" data-value="100" type="button">100</button>
+        </div>
+        <div class="option-row hidden" data-options="quote">
+          <button class="option active" data-value="random" type="button">random</button>
+          <button class="option" data-value="short" type="button">short</button>
+          <button class="option" data-value="medium" type="button">medium</button>
+          <button class="option" data-value="long" type="button">long</button>
+          <button class="option" data-value="thicc" type="button">thicc</button>
+        </div>
+        <div class="option-row hidden" data-options="competition">
+          <button class="option active" data-value="15" type="button">thicc 15s</button>
+          <button class="option" data-value="30" type="button">thicc 30s</button>
+        </div>
+      </section>
+
+      <section class="player-row" aria-label="Test actions">
+        <button id="startButton" class="start" type="button">restart</button>
+      </section>
+
+      <section id="test" class="test" aria-label="Typing test">
+        <div id="timer" class="timer">15</div>
+        <div id="words" class="words" aria-live="polite"></div>
+        <div id="caret" class="caret" aria-hidden="true"></div>
+        <input id="typingInput" class="typing-input" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </section>
+
+      <section id="result" class="result hidden" aria-label="Result">
+        <div>
+          <span id="resultWpm">0</span>
+          <small>wpm</small>
+        </div>
+        <div>
+          <span id="resultAccuracy">100%</span>
+          <small>acc</small>
+        </div>
+        <div>
+          <span id="resultScore">0</span>
+          <small>score</small>
+        </div>
+        <form id="nameForm" class="name-form">
+          <label>
+            <span>name</span>
+            <input id="playerName" type="text" maxlength="24" autocomplete="off" placeholder="optional">
+          </label>
+          <button id="saveScoreButton" type="submit">save</button>
+        </form>
+        <button id="nextButton" type="button">next test</button>
+        <p id="quoteSource" class="quote-source hidden"></p>
+      </section>
+
+      <dialog id="leaderboardDialog" class="leaderboard-dialog" aria-label="Local leaderboard">
+        <section class="leaderboard">
+          <div class="heading">
+            <div>
+              <h1>leaderboard</h1>
+              <p>local scores only</p>
+            </div>
+            <div class="leaderboard-actions">
+              <button id="clearScores" class="icon-button" type="button">clear</button>
+              <button id="closeLeaderboard" class="icon-button" type="button">close</button>
+            </div>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>name</th>
+                <th>mode</th>
+                <th>score</th>
+                <th>wpm</th>
+                <th>acc</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard"></tbody>
+          </table>
+        </section>
+      </dialog>
+
+      <footer>
+        <span class="event-logos" aria-label="Event partners">
+          <img src="assets/cagayanime-logo.png" alt="Cagayanime">
+          <img src="assets/community-logo.png" alt="Community">
+          <img src="assets/dominions-logo.png" alt="Dominions Productions">
+        </span>
+      </footer>
+    </main>
+
+    <script src="competition-quotes-data.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
