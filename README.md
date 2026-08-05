@@ -50,15 +50,33 @@ Clearing browser data will clear both.
 - `mt-english-data.js` - Monkeytype English quote data, lazy-loaded only for quote mode
 - `assets/` - local logos and background image
 
-## Scoring
+## FAQ
+
+### How is score calculated?
 
 Score is calculated from speed and accuracy:
 
 ```text
-score = WPM * accuracy
+score = WPM * (accuracy / 100)
 ```
 
+For example, `80 WPM` at `95%` accuracy gives a score of `76`.
+
+Accuracy is based on typed characters:
+
+```text
+accuracy = correct typed characters / total typed characters
+```
+
+Extra incorrect characters count against accuracy. Empty runs show `0%` accuracy, `0 WPM`, and `0` score.
+
 The leaderboard sorts by score first, then accuracy, then WPM.
+
+### Are the competition prompts serious opinions?
+
+No. Competition prompts are intentionally written as light ragebait for booth energy.
+
+Prompt opinions do not reflect the keyboard club, probably.
 
 ## License
 
