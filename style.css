@@ -239,8 +239,8 @@ body[data-mode="competition"].awaiting-start .timer {
   visibility: hidden;
 }
 
+body[data-mode="competition"].awaiting-start .test::before,
 body[data-mode="competition"].awaiting-start .test::after {
-  content: "press space to begin";
   position: absolute;
   top: calc(clamp(36px, 7vh, 82px) + 42px + 20px);
   left: 0;
@@ -248,12 +248,26 @@ body[data-mode="competition"].awaiting-start .test::after {
   height: 244px;
   display: grid;
   place-items: center;
-  color: var(--main-color);
-  font-size: clamp(1.35rem, 2.4vw, 2rem);
-  font-weight: 800;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   z-index: 3;
+}
+
+body[data-mode="competition"].awaiting-start .test::before {
+  content: "prompt opinions do not reflect the keyboard club, probably.";
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(0.85rem, 1.25vw, 1.05rem);
+  font-weight: 700;
+  text-align: center;
+  transform: translateY(-2.2em);
+}
+
+body[data-mode="competition"].awaiting-start .test::after {
+  content: "press space to begin.";
+  color: var(--main-color);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  font-weight: 800;
+  transform: translateY(0.55em);
 }
 
 body[data-mode="competition"].showing-result .words {
