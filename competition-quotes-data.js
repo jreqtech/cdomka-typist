@@ -564,4 +564,32 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "anime",
     size: "thicc"
   },
+  {
+    title: "League of Legends Is a Chat Room With Occasional Objectives",
+    text: "League of Legends players spend more energy typing essays than playing the actual match. Every death becomes a courtroom hearing, every missed ping becomes evidence, and every bad lane turns into a public debate about blame. The map has towers and dragons, but the real main objective is convincing strangers that nothing was your fault.",
+    source: "Gaming Debate Topic",
+    category: "gaming",
+    size: "thicc"
+  },
+  {
+    title: "Trading Card Games Are Just Gambling for People Who Like Rules Text",
+    text: "Trading card games dress themselves up as strategy, but booster packs are basically dopamine loot boxes with cardboard inside. Players can talk about deck theory all they want, but the business model relies on people chasing rare pulls and expensive staples. The skill expression is real, but the packaging is designed to make everyone keep paying for one more chance.",
+    source: "Gaming Debate Topic",
+    category: "gaming",
+    size: "thicc"
+  },
+  {
+    title: "Gacha Games Are Not Games, They Are Spreadsheets With Waifus",
+    text: "Gacha players talk about team building like they are master strategists, but most of the experience is resource management, daily chores, and saving currency for a character banner. The combat is usually just a colorful excuse to justify the gambling loop. People are not logging in for gameplay; they are clocking in for digital chores with prettier menus.",
+    source: "Gaming Debate Topic",
+    category: "gaming",
+    size: "thicc"
+  },
+  {
+    title: "Valorant Is Counter-Strike for People Who Need Superpowers to Feel Useful",
+    text: "Valorant players act like they are playing the peak tactical shooter, but half the game is hiding behind magical smoke, robot dogs, walls, flashes, scans, and ultimates. If your aim fails, there is always an ability ready to explain why it was actually strategy. Counter-Strike asks if you can shoot; Valorant asks if your character can do your homework first.",
+    source: "Gaming Debate Topic",
+    category: "gaming",
+    size: "thicc"
+  },
 ];
