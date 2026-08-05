@@ -606,4 +606,11 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "vocaloid",
     size: "thicc"
   },
+  {
+    title: "Obscure Cosplays Get Ignored Because Judges Only Reward What They Recognize",
+    text: "Obscure cosplays get ignored because judges cannot properly reward characters they do not recognize. A deeply accurate costume from a niche series can lose to a safer mainstream pick simply because the reference is easier to understand from across the stage. Cosplay contests pretend judging is objective, but source familiarity absolutely affects what looks impressive, accurate, or emotionally memorable.",
+    source: "Cosplay Debate Topic",
+    category: "cosplay",
+    size: "thicc"
+  },
 ];
