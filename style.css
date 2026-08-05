@@ -14,21 +14,6 @@
   --font: ui-monospace, "Cascadia Mono", "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
-:root.light {
-  color-scheme: light;
-  --bg-color: #f8e390;
-  --main-color: #0089ad;
-  --caret-color: #0089ad;
-  --sub-color: #1b1b1b;
-  --sub-alt-color: #ffde59;
-  --text-color: #1b1b1b;
-  --error-color: #d64f86;
-  --error-extra-color: #9a3039;
-  --success-color: #0089ad;
-  --button-color: #f1a419;
-  --deep-color: #0089ad;
-}
-
 * {
   box-sizing: border-box;
 }

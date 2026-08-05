@@ -18,7 +18,6 @@ const resultAccuracyEl = document.getElementById("resultAccuracy");
 const resultScoreEl = document.getElementById("resultScore");
 const quoteSourceEl = document.getElementById("quoteSource");
 const focusButton = document.getElementById("focusButton");
-const themeButton = document.getElementById("themeButton");
 const caretEl = document.getElementById("caret");
 
 const STORAGE_KEY = "cdomkaTypingLeaderboard";
@@ -761,11 +760,6 @@ leaderboardDialog.addEventListener("click", (event) => {
 
 focusButton.addEventListener("click", () => {
   document.body.classList.toggle("focus");
-  inputEl.focus();
-});
-
-themeButton.addEventListener("click", () => {
-  document.documentElement.classList.toggle("light");
   inputEl.focus();
 });
 
