@@ -190,15 +190,20 @@ textarea:focus {
 
 body[data-mode="competition"].showing-result .test {
   grid-row: 3;
-  height: auto;
-  min-height: 0;
-  padding-top: clamp(236px, 28vh, 292px);
+  height: 360px;
+  padding-top: clamp(36px, 7vh, 82px);
 }
 
 .showing-result .timer {
   display: none;
 }
 
+body:not([data-mode="competition"]).showing-result .words {
+  filter: blur(10px);
+  user-select: none;
+}
+
+body[data-mode="competition"].showing-result .words,
 body:not([data-mode="competition"]).showing-result .words {
   filter: blur(10px);
   user-select: none;
@@ -273,11 +278,11 @@ body[data-mode="competition"].awaiting-start .test::after {
 }
 
 body[data-mode="competition"].showing-result .words {
-  height: auto;
+  height: 244px;
   max-height: none;
-  overflow: visible;
-  font-size: clamp(1rem, 1.45vw, 1.35rem);
-  line-height: 1.58;
+  overflow: hidden;
+  font-size: clamp(1.55rem, 2.9vw, 2.25rem);
+  line-height: 1.42;
 }
 
 .char.correct {
@@ -357,7 +362,20 @@ body:not([data-mode="competition"]).showing-result .result-actions {
 }
 
 body[data-mode="competition"].showing-result .page {
-  padding-bottom: 150px;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  padding-bottom: 190px;
+}
+
+body[data-mode="competition"].showing-result .result {
+  position: relative;
+  z-index: 4;
+  align-self: start;
+  width: min(780px, 100%);
+  margin-right: auto;
+  margin-left: auto;
+  gap: clamp(8px, 1.4vw, 18px);
+  margin-top: clamp(52px, 9vh, 104px);
+  min-height: 244px;
 }
 
 .name-form {
@@ -585,6 +603,19 @@ body[data-mode="competition"].showing-result .page {
   font-size: 1rem;
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+}
+
+.full-prompt {
+  grid-column: 1 / -1;
+  width: min(980px, 100%);
+  max-height: min(28vh, 270px);
+  margin: clamp(8px, 1.6vh, 18px) auto 0;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: clamp(0.92rem, 1.28vw, 1.18rem);
+  line-height: 1.48;
+  text-align: left;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
 }
 
 body[data-mode="competition"] .quote-source {
@@ -1027,11 +1058,21 @@ tbody tr:first-child td {
   }
 
   body[data-mode="competition"].showing-result .page {
-    padding-bottom: 118px;
+    padding-bottom: 150px;
   }
 
   body[data-mode="competition"].showing-result .test {
-    padding-top: 220px;
+    padding-top: 0;
+  }
+
+  body[data-mode="competition"].showing-result .result {
+    margin-top: 24px;
+  }
+
+  .full-prompt {
+    max-height: 180px;
+    font-size: 0.92rem;
+    line-height: 1.42;
   }
 
   .event-logos img {

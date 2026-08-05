@@ -19,6 +19,7 @@ const resultRankEl = document.getElementById("resultRank");
 const resultRankTitleEl = document.getElementById("resultRankTitle");
 const resultRankCardEl = resultRankEl.closest(".rank-display");
 const quoteSourceEl = document.getElementById("quoteSource");
+const fullPromptEl = document.getElementById("fullPrompt");
 const focusButton = document.getElementById("focusButton");
 const caretEl = document.getElementById("caret");
 
@@ -586,6 +587,9 @@ function renderResult(stats) {
   const shouldShowSource = state.mode !== "competition" && state.currentQuoteSource;
   quoteSourceEl.textContent = shouldShowSource ? state.currentQuoteSource : "";
   quoteSourceEl.classList.toggle("hidden", !shouldShowSource);
+  const shouldShowFullPrompt = state.mode === "competition";
+  fullPromptEl.textContent = shouldShowFullPrompt ? state.targetText : "";
+  fullPromptEl.classList.toggle("hidden", !shouldShowFullPrompt);
   resultEl.classList.remove("hidden");
 }
 
@@ -677,6 +681,7 @@ function finishTest() {
     date: new Date().toISOString()
   };
   renderWords();
+  wordsEl.scrollTop = 0;
   renderResult(stats);
   document.body.classList.add("showing-result");
 }
