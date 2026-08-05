@@ -543,4 +543,25 @@ window.CDOMKA_COMPETITION_QUOTES = [
     category: "anime",
     size: "thicc"
   },
+  {
+    title: "Attack on Titan's Ending Makes the Whole Series Worse",
+    text: "Attack on Titan's ending makes the entire series worse because it turns years of brutal setup into a conclusion fans have to explain, defend, and reinterpret to make satisfying. A great finale should make the story feel sharper in hindsight, not split the audience into permanent debate camps. If the ending needs essays to prove it was genius, maybe it was not that clean.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "Frieren Is Overpraised Because Anime Fans Forgot What Quiet Shows Look Like",
+    text: "Frieren is overpraised because anime fans forgot that quiet pacing is a style, not automatic greatness. The show is beautiful and emotional, but people treat every silent pause, soft piano cue, and calm walking scene like revolutionary storytelling. Sometimes restraint is powerful, and sometimes everyone is giving bonus points because nobody is screaming.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
+  {
+    title: "The Apothecary Diaries Is Carried by Maomao, Not the Plot",
+    text: "The Apothecary Diaries is carried by Maomao, not by the mystery writing. Most of the cases are simple palace problems made entertaining because Maomao is clever, weird, and fun to watch. Remove her personality and the show becomes a polished sequence of suspicious snacks, jealous nobles, and people slowly realizing the obvious.",
+    source: "Anime Debate Topic",
+    category: "anime",
+    size: "thicc"
+  },
 ];
