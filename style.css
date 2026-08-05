@@ -169,6 +169,7 @@ textarea:focus {
 
 .test {
   position: relative;
+  grid-column: 1 / -1;
   align-self: start;
   height: 360px;
   display: grid;
@@ -190,8 +191,7 @@ body[data-mode="competition"].showing-result .test {
 }
 
 body:not([data-mode="competition"]).showing-result .words {
-  filter: blur(8px);
-  opacity: 0.28;
+  filter: blur(10px);
   user-select: none;
 }
 
@@ -317,6 +317,7 @@ body[data-mode="competition"].showing-result .words {
 }
 
 .result {
+  grid-column: 1 / -1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -336,7 +337,7 @@ body:not([data-mode="competition"]).showing-result .result {
   z-index: 4;
   grid-row: 4;
   align-self: start;
-  margin-top: clamp(36px, 7vh, 82px);
+  margin-top: clamp(52px, 9vh, 104px);
   min-height: 244px;
   pointer-events: none;
 }
@@ -366,13 +367,19 @@ body[data-mode="competition"].showing-result .page {
 }
 
 .result-actions {
-  flex-basis: 100%;
-  display: flex;
+  flex: 0 0 100%;
+  width: max-content;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  grid-auto-flow: column;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
   gap: 12px;
+  margin: 0 auto;
+}
+
+.result-actions button {
+  white-space: nowrap;
 }
 
 .result div {

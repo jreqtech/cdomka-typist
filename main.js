@@ -84,7 +84,9 @@ const state = {
   ,
   currentQuoteSource: "",
   awaitingCompetitionStart: false,
-  preserveTarget: false
+  preserveTarget: false,
+  keyPresses: 0,
+  correctKeyPresses: 0
 };
 
 function randomItem(items) {
@@ -297,7 +299,7 @@ function calculateStats() {
   const totalTypedChars = typed.length + extraCharCount;
   const elapsedSeconds = state.startedAt ? Math.max((Date.now() - state.startedAt) / 1000, 1) : 1;
   const grossWpm = totalTypedChars / 5 / (elapsedSeconds / 60);
-  const accuracy = totalTypedChars ? (correctChars / totalTypedChars) * 100 : 0;
+  const accuracy = state.keyPresses ? (state.correctKeyPresses / state.keyPresses) * 100 : 0;
   const score = grossWpm * (accuracy / 100);
 
   return {
@@ -305,6 +307,8 @@ function calculateStats() {
     totalTypedChars,
     correctChars,
     errors,
+    keyPresses: state.keyPresses,
+    correctKeyPresses: state.correctKeyPresses,
     elapsedSeconds,
     wpm: Math.round(grossWpm),
     accuracy: Math.round(accuracy),
@@ -410,6 +414,14 @@ function countExtraChars() {
   return count;
 }
 
+function recordTypedKey(char) {
+  const index = inputEl.value.length;
+  state.keyPresses += 1;
+  if (state.targetText[index] === char) {
+    state.correctKeyPresses += 1;
+  }
+}
+
 function addExtraCharacterAtCurrentSpace(char) {
   const index = inputEl.value.length;
   if (state.targetText[index] !== " ") return false;
@@ -512,6 +524,8 @@ function startTest() {
   state.ready = true;
   state.pendingScore = null;
   inputEl.value = "";
+  state.keyPresses = 0;
+  state.correctKeyPresses = 0;
   renderedTarget = "";
   wordsEl.scrollTop = 0;
   playerNameEl.value = "";
@@ -616,6 +630,8 @@ function resetTest() {
   state.lastStats = null;
   state.pendingScore = null;
   inputEl.value = "";
+  state.keyPresses = 0;
+  state.correctKeyPresses = 0;
   renderedTarget = "";
   wordsEl.scrollTop = 0;
   playerNameEl.value = "";
@@ -713,10 +729,13 @@ document.addEventListener("keydown", (event) => {
     return;
   }
 
-  if (isPrintable && document.activeElement === inputEl && event.key !== " " && addExtraCharacterAtCurrentSpace(event.key)) {
-    event.preventDefault();
-    beginTest();
-    return;
+  if (isPrintable && document.activeElement === inputEl) {
+    recordTypedKey(event.key);
+    if (event.key !== " " && addExtraCharacterAtCurrentSpace(event.key)) {
+      event.preventDefault();
+      beginTest();
+      return;
+    }
   }
 
   if (!isPrintable) return;
@@ -724,6 +743,7 @@ document.addEventListener("keydown", (event) => {
   if (document.activeElement !== inputEl) {
     event.preventDefault();
     inputEl.focus();
+    recordTypedKey(event.key);
     if (event.key !== " " && addExtraCharacterAtCurrentSpace(event.key)) {
       beginTest();
       return;
