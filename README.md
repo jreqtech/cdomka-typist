@@ -2,6 +2,20 @@
 
 Offline typing challenge for CDOMKA event booths. It runs from static HTML, CSS, and JavaScript, so it can be copied to a flash drive and opened on a computer without installing a server or build tools.
 
+Try it online: https://jreqtech.github.io/cdomka-typist/
+
+## Download
+
+To run it offline:
+
+1. Open the GitHub repository.
+2. Click `Code`.
+3. Click `Download ZIP`.
+4. Extract the ZIP file.
+5. Open `index.html` in a browser.
+
+The extracted folder can be copied to a flash drive and used on another computer.
+
 ## Features
 
 - Time, words, quote, and competition typing modes
