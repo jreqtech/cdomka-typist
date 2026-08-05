@@ -55,6 +55,7 @@ let previousTyped = "";
 let extraCharsByIndex = new Map();
 let extraSpansByIndex = new Map();
 let lastCompetitionTitle = "";
+let competitionBags = new Map();
 let monkeytypeQuotes = [];
 let monkeytypeQuotesLoading = null;
 const competitionQuotes = window.CDOMKA_COMPETITION_QUOTES || [];
@@ -82,7 +83,8 @@ const state = {
   ready: false,
   pendingScore: null
   ,
-  currentQuoteSource: ""
+  currentQuoteSource: "",
+  awaitingCompetitionStart: false
 };
 
 function randomItem(items) {
@@ -160,11 +162,26 @@ function pickCompetitionQuote(size = "medium") {
     return quote.category === "anime" && quote.size === size;
   });
   const selectedPool = pool.length ? pool : localCompetitionQuotes;
-  const nonRepeatingPool = selectedPool.filter((quote) => quote.title !== lastCompetitionTitle);
+  const quote = nextCompetitionBagItem(size, selectedPool);
 
-  const quote = randomItem(nonRepeatingPool.length ? nonRepeatingPool : selectedPool);
   lastCompetitionTitle = quote.title || "";
   return quote;
+}
+
+function nextCompetitionBagItem(size, pool) {
+  const signature = pool.map((quote) => quote.title || quote.text).join("|");
+  let bag = competitionBags.get(size);
+
+  if (!bag || bag.signature !== signature || !bag.queue.length) {
+    const queue = shuffle(pool);
+    if (queue.length > 1 && (queue[0].title || "") === lastCompetitionTitle) {
+      [queue[0], queue[1]] = [queue[1], queue[0]];
+    }
+    bag = { signature, queue };
+    competitionBags.set(size, bag);
+  }
+
+  return bag.queue.shift();
 }
 
 function getCompetitionQuotes() {
@@ -182,18 +199,21 @@ function configureTest() {
   document.body.dataset.mode = state.mode;
 
   if (state.mode === "time") {
+    setCompetitionAwaiting(false);
     state.targetText = buildWords(160);
     state.currentQuoteSource = "";
     timerEl.textContent = state.options.time;
   }
 
   if (state.mode === "words") {
+    setCompetitionAwaiting(false);
     state.targetText = buildWords(state.options.words);
     state.currentQuoteSource = "";
     timerEl.textContent = "words";
   }
 
   if (state.mode === "quote") {
+    setCompetitionAwaiting(false);
     if (!monkeytypeQuotes.length) {
       state.targetText = "loading quotes";
       inputEl.disabled = true;
@@ -214,7 +234,13 @@ function configureTest() {
     state.targetText = quote.text;
     state.currentQuoteSource = "";
     timerEl.textContent = state.options.competitionTime;
+    setCompetitionAwaiting(true);
   }
+}
+
+function setCompetitionAwaiting(value) {
+  state.awaitingCompetitionStart = value;
+  document.body.classList.toggle("awaiting-start", value);
 }
 
 function getScores() {
@@ -415,7 +441,7 @@ function scrollCurrentCharacterIntoView() {
 
 function positionCaret() {
   const current = wordsEl.querySelector(".char.current");
-  if (!current || state.finished) {
+  if (!current || state.finished || state.awaitingCompetitionStart) {
     caretEl.classList.add("hidden");
     return;
   }
@@ -440,7 +466,7 @@ function renderTimer() {
 }
 
 function beginTest() {
-  if (state.startedAt || state.finished) return;
+  if (state.startedAt || state.finished || state.awaitingCompetitionStart) return;
   state.startedAt = Date.now();
   startButton.textContent = "restart";
   state.timer = setInterval(renderTimer, 200);
@@ -485,13 +511,14 @@ function startTest() {
   resultEl.classList.add("hidden");
   document.body.classList.remove("showing-result");
   renderWords();
-  inputEl.focus();
+  if (!state.awaitingCompetitionStart) inputEl.focus();
 }
 
 function finishTest() {
   if (state.finished) return;
 
   state.finished = true;
+  setCompetitionAwaiting(false);
   clearInterval(state.timer);
   inputEl.disabled = true;
   caretEl.classList.add("hidden");
@@ -585,7 +612,7 @@ function resetTest() {
   resultEl.classList.add("hidden");
   document.body.classList.remove("showing-result");
   renderWords();
-  inputEl.focus();
+  if (!state.awaitingCompetitionStart) inputEl.focus();
 }
 
 document.querySelectorAll(".mode").forEach((button) => {
@@ -635,6 +662,17 @@ document.addEventListener("keydown", (event) => {
   const isPrintable = event.key.length === 1;
 
   if (isTypingName || isCommand || state.finished) return;
+
+  if (state.awaitingCompetitionStart) {
+    event.preventDefault();
+    if (event.code === "Space") {
+      setCompetitionAwaiting(false);
+      inputEl.focus();
+      beginTest();
+      renderWords();
+    }
+    return;
+  }
 
   if (event.key === "Backspace" && document.activeElement === inputEl && removeExtraCharacterAtCurrentSpace()) {
     event.preventDefault();
