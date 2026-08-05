@@ -153,6 +153,10 @@ const state = {
   lastInputAt: null
 };
 
+function isCompetitionTimed() {
+  return state.mode === "competition" && Number.isFinite(state.options.competitionTime);
+}
+
 function randomItem(items) {
   return items[Math.floor(Math.random() * items.length)];
 }
@@ -306,7 +310,7 @@ function configureTest() {
     const quote = pickCompetitionQuote(state.options.competition);
     state.targetText = quote.text;
     state.currentQuoteSource = "";
-    timerEl.textContent = state.options.competitionTime;
+    timerEl.textContent = isCompetitionTimed() ? state.options.competitionTime : "full";
     setCompetitionAwaiting(true);
   }
 }
@@ -315,7 +319,7 @@ function updateTimerLabel() {
   if (state.mode === "time") timerEl.textContent = state.options.time;
   if (state.mode === "words") timerEl.textContent = "words";
   if (state.mode === "quote") timerEl.textContent = state.options.quote;
-  if (state.mode === "competition") timerEl.textContent = state.options.competitionTime;
+  if (state.mode === "competition") timerEl.textContent = isCompetitionTimed() ? state.options.competitionTime : "full";
 }
 
 function setCompetitionAwaiting(value) {
@@ -556,7 +560,7 @@ function renderTimer() {
     return;
   }
 
-  if (!["time", "competition"].includes(state.mode)) return;
+  if (state.mode !== "time" && !isCompetitionTimed()) return;
   const timeLimit = state.mode === "competition" ? state.options.competitionTime : state.options.time;
   const remaining = Math.max(0, timeLimit - Math.floor((Date.now() - state.startedAt) / 1000));
   timerEl.textContent = remaining;
@@ -619,7 +623,7 @@ function hashString(value) {
 function modeLabel() {
   if (state.mode === "time") return `${state.options.time}s`;
   if (state.mode === "words") return `${state.options.words}w`;
-  if (state.mode === "competition") return `competition ${state.options.competitionTime}s`;
+  if (state.mode === "competition") return isCompetitionTimed() ? `hot takes ${state.options.competitionTime}s` : "hot takes full run";
   return `quote ${state.options.quote}`;
 }
 
@@ -771,7 +775,7 @@ document.querySelectorAll(".option").forEach((button) => {
     const value = button.dataset.value;
     if (mode === "competition") {
       state.options.competition = "thicc";
-      state.options.competitionTime = Number(value);
+      state.options.competitionTime = value === "full" ? null : Number(value);
     } else {
       state.options[mode] = Number.isNaN(Number(value)) ? value : Number(value);
     }
@@ -794,7 +798,7 @@ document.getElementById("test").addEventListener("click", () => inputEl.focus())
 inputEl.addEventListener("input", () => {
   beginTest();
   renderWords();
-  if (!["time", "competition"].includes(state.mode) && inputEl.value.length >= state.targetText.length) finishTest();
+  if (state.mode !== "time" && inputEl.value.length >= state.targetText.length) finishTest();
 });
 
 nameForm.addEventListener("submit", (event) => {

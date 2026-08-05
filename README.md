@@ -18,10 +18,10 @@ The extracted folder can be copied to a flash drive and used on another computer
 
 ## Features
 
-- Time, words, quote, and competition typing modes
-- Competition mode with `thicc 15s` and `thicc 30s` options
+- Time, words, quote, and Hot Takes typing modes
+- Hot Takes mode with `thicc 15s`, `thicc 30s`, and `full run` options
 - Local leaderboard stored in the browser
-- Hidden competition text editor at `admin.html`
+- Hidden Hot Takes text editor at `admin.html`
 - Offline-first assets and data
 - Monkeytype-inspired typing feedback and quote mode
 
@@ -29,14 +29,14 @@ The extracted folder can be copied to a flash drive and used on another computer
 
 Open `index.html` in a browser.
 
-For local editing of competition prompts, open `admin.html` directly. It is intentionally not linked from the main page.
+For local editing of Hot Takes prompts, open `admin.html` directly. It is intentionally not linked from the main page.
 
 ## Local Data
 
 The app stores data in browser local storage:
 
 - `cdomkaTypingLeaderboard` - local leaderboard scores
-- `cdomkaCompetitionTexts` - edited competition prompts from `admin.html`
+- `cdomkaCompetitionTexts` - edited Hot Takes prompts from `admin.html`
 
 Clearing browser data will clear both.
 
@@ -45,8 +45,8 @@ Clearing browser data will clear both.
 - `index.html` - main typing challenge
 - `admin.html` - hidden prompt editor
 - `main.js` - typing logic, scoring, leaderboard, lazy quote loading
-- `admin.js` - competition prompt editor
-- `competition-quotes-data.js` - built-in competition prompt data
+- `admin.js` - Hot Takes prompt editor
+- `competition-quotes-data.js` - built-in Hot Takes prompt data
 - `mt-english-data.js` - Monkeytype English quote data, lazy-loaded only for quote mode
 - `assets/` - local logos and background image
 
@@ -92,7 +92,7 @@ F  = below 20
 
 After a test has started, the app watches for inactivity. If there are no typing keypresses for 5 seconds, the test ends automatically.
 
-Competition mode does not start the timer or idle check while the blurred prompt is waiting for `space`. The run starts only after the player presses `space` to begin.
+Hot Takes mode does not start the timer or idle check while the blurred prompt is waiting for `space`. The run starts only after the player presses `space` to begin.
 
 ### How does backspace affect scoring?
 
@@ -100,9 +100,9 @@ Backspace only edits the current typed text. It does not remove earlier wrong ke
 
 Example: if a player types the wrong letter, presses backspace, then types the correct letter, the final visible text can be correct, but the original wrong keypress still lowers accuracy. This prevents players from clearing mistakes for a perfect score after correcting them.
 
-### Are the competition prompts serious opinions?
+### Are the Hot Takes prompts serious opinions?
 
-No. Competition prompts are intentionally written as light ragebait for booth energy.
+No. Hot Takes prompts are intentionally written as light ragebait for booth energy.
 
 Prompt opinions do not reflect the keyboard club, probably.
 
