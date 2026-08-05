@@ -234,6 +234,18 @@ body[data-mode="competition"].awaiting-start .words {
   user-select: none;
 }
 
+body[data-mode="competition"].awaiting-start .timer {
+  position: absolute;
+  top: calc(clamp(36px, 7vh, 82px) + 42px + 20px);
+  left: 0;
+  right: 0;
+  height: 244px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-2.2em);
+  z-index: 4;
+}
+
 body[data-mode="competition"].awaiting-start .test::after {
   content: "press space to begin";
   position: absolute;
